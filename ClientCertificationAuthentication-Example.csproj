@@ -5,4 +5,8 @@
     <RootNamespace>ClientCertificationAuthentication_Example</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="3.0.0" />
+  </ItemGroup>
+
 </Project>

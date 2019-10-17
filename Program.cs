@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Server.Kestrel.Https;
 using Microsoft.Extensions.Hosting;
 
 namespace ClientCertificationAuthentication_Example
@@ -14,6 +15,12 @@ namespace ClientCertificationAuthentication_Example
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.ConfigureKestrel(options =>
+                    {
+                        options.ConfigureHttpsDefaults(opt =>
+                            opt.ClientCertificateMode = ClientCertificateMode.RequireCertificate);
+                    });
+
                     webBuilder.UseStartup<Startup>();
                 });
     }
